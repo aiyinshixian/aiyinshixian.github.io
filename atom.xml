@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://aiyinshixian.github.io</id>
+    <id>C:/Users/84469/Documents/Gridea/output</id>
     <title>爱因诗贤</title>
-    <updated>2019-08-15T15:21:30.218Z</updated>
+    <updated>2019-08-15T15:25:45.711Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://aiyinshixian.github.io"/>
-    <link rel="self" href="https://aiyinshixian.github.io/atom.xml"/>
+    <link rel="alternate" href="C:/Users/84469/Documents/Gridea/output"/>
+    <link rel="self" href="C:/Users/84469/Documents/Gridea/output/atom.xml"/>
     <subtitle>爱因诗贤个人博客</subtitle>
-    <logo>https://aiyinshixian.github.io/images/avatar.png</logo>
-    <icon>https://aiyinshixian.github.io/favicon.ico</icon>
+    <logo>C:/Users/84469/Documents/Gridea/output/images/avatar.png</logo>
+    <icon>C:/Users/84469/Documents/Gridea/output/favicon.ico</icon>
     <rights>All rights reserved 2019, 爱因诗贤</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://aiyinshixian.github.io/post/hello-gridea</id>
-        <link href="https://aiyinshixian.github.io/post/hello-gridea">
+        <id>C:/Users/84469/Documents/Gridea/output/post/hello-gridea/index.html</id>
+        <link href="C:/Users/84469/Documents/Gridea/output/post/hello-gridea/index.html">
         </link>
         <updated>2018-12-11T16:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
