@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>合并二维数组交集区间算法 | 爱因诗贤</title>
+<meta name="description" content="爱因诗贤个人博客">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="C:/Users/84469/Documents/Gridea/output/favicon.ico?v=1567048876580">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="C:/Users/84469/Documents/Gridea/output/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="C:/Users/84469/Documents/Gridea/output">
+        <img src="C:/Users/84469/Documents/Gridea/output/images/avatar.png?v=1567048876580" class="site-logo">
+        <h1 class="site-title">爱因诗贤</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      爱因诗贤个人博客
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/84469/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">合并二维数组交集区间算法</h2>
+            <div class="post-date">2019-08-29</div>
+            
+            <div class="post-content">
+              <pre><code>&lt;?php
+namespace app\index\controller;
+use think\Controller;
+use think\Log;
+class Index extends Controller
+{
+
+    public function test($brr = []){
+
+            $brr = [[3,10],[7,25],[15,18],[30,40],[25,29]];
+
+            $str_arr = [$brr[0]];//此处取$brr数组第一个元素数组
+
+            for($i=1;$i&lt;= count($brr)-1;$i++){
+
+                $str_arr = $this-&gt;getLastArr($str_arr,$brr[$i]);//假设此函数能得到一个二维数组和一个一维数组的交集
+            }
+
+            print_r($str_arr);
+    }
+    /**
+     * @param $str_arr
+     * @param $brr
+     */
+    public function getLastArr($str_arr,$brr){
+
+        //此时假设$str_arr是没有交集的二维数组,如[[2,5],[6,10],[11,15]......]
+        //      $str_str 是这个二维数组对应的展开,如 [2,5,6,10,11,15.......]
+                 $str_str = [];
+                foreach ($str_arr as $v){
+
+                    foreach ($v as $vl){
+                        $str_str[] =$vl;
+                    }
+
+                }
+
+        //假设$brr为一个任意的区间数组如 [12,18]
+
+        //步骤一 : 把 12拿到 $str_str 中去作对比,找到 12 在 $str_str 中的 哪个区间
+        //步骤二 : 把 15拿到 $str_str 中去对比 ,找到 15 在 $str_str 中的哪个区间
+
+        //若 12 所在区间的位置数为第m个元素 和 第 n 个元素之间,  15所在区间 为 第x个元素 和 第y个元素之间,
+          //则 m n x y 有四种情况 (m奇数   x奇数 ) 、(m偶数  x奇数 )、
+        //                      (m奇数   x偶数 ) 、(m偶数  x偶数)
+
+        //这四种情况的 合并 都有 一定的规律
+
+
+            $m = $this-&gt;getNum($brr[0],$str_str); //此函数得到某个数值在数组中区间的位置前一个元素的位置的值 ,$m 表示第 $m个之后
+
+            $x = $this-&gt;getNum($brr[1],$str_str); //同上
+
+            if($m != $x){
+                //1.(m奇数   x奇数 )
+                if($m % 2 == 1 &amp;&amp; $x % 2 == 1){
+                    //则从 第 $m到 第$x 之间的元素会被合并,且新增 第 $m + 1 和 $m + 2个元素
+                    for($j = $m ;$j&lt;=$x-1;$j++){
+                        unset($str_str[$j]);//出去有交集的部分,
+                    }
+
+                }
+
+                //2.(m偶数  x奇数 )
+                if($m % 2 == 0 &amp;&amp; $x % 2 == 1){
+                    //则从第 $m 到 第 $x+1 个元素之间的元素会被合并
+                    //为了方便先取出 第 $x+1个元素
+                    $x_1 = $str_str[$x];
+
+                    for ($j = $m;$j &lt;= $x;$j++){
+                        unset($str_str[$j]);//出去有交集的部分
+                    }
+                    $str_str[$m] = $brr[0];
+
+                    $str_str[$m+1] = $x_1;
+
+                }
+
+                //3.(m奇数   x偶数 )
+                if($m % 2 == 1 &amp;&amp; $x % 2 == 0){
+
+                    //则从第 $m+1 到 第 $x 个元素之间的元素会被合并
+                    //为了方便先取出 第 $m个元素
+                    $x_1 = $str_str[$m-1];
+
+                    for ($j = $m-1;$j &lt;= $x-1;$j++){
+                        unset($str_str[$j]);//出去有交集的部分
+                    }
+                    $str_str[$m-1] = $x_1;
+                    $str_str[$m] = $brr[1];
+
+
+                }
+
+                //4.(m偶数   x偶数 )
+                if($m % 2 == 0 &amp;&amp; $x % 2 == 0){
+                    //则从第 $m 到 第 $x+1 个元素之间的元素会被合并
+                    //为了方便先取出 第 $x+1个元素
+
+                    for ($j = $m;$j &lt;= $x-1;$j++){
+                        unset($str_str[$j]);//出去有交集的部分
+
+                    }
+                    $str_str[$m] = $brr[0];
+                    $str_str[$m+1] = $brr[1];
+
+                    return $str_str;
+                }
+            }elseif($m == $x &amp;&amp; $m % 2 == 0){
+                $str_str[$m+1] = $brr[0];
+                $str_str[$m+2] = $brr[1];
+            }
+
+        $str_str = $this-&gt;str_str_arr($str_str);
+        return $str_str;
+
+    }
+
+    public function str_str_arr($str_str){
+            $i=1;
+            $arr = [];
+        foreach ($str_str as $key =&gt; $vv){
+
+            if($i % 2 == 1){
+                $brr = [];
+                $brr[] = $vv;
+            }else{
+                $brr[] = $vv;
+                $arr[] = $brr;
+            }
+            $i++;
+        }
+
+        return $arr;
+    }
+
+    public function getNum($num,$str_str){
+
+        for($i=0;$i&lt;=count($str_str)-2;$i++){ //$i表示 数组中第 $i 个元素
+
+                if($num &gt;= $str_str[$i] &amp;&amp; $num&lt;= $str_str[$i+1]){
+
+                    return $i+1;
+                }elseif($num&lt;$str_str[0]){
+
+                    return 0;
+                }
+        }
+        return count($str_str);
+    }
+}
+
+</code></pre>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
