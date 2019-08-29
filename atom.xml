@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>C:/Users/84469/Documents/Gridea/output</id>
+    <id>https://aiyinshixian.github.io</id>
     <title>爱因诗贤</title>
-    <updated>2019-08-29T03:24:29.971Z</updated>
+    <updated>2019-08-29T03:46:49.989Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="C:/Users/84469/Documents/Gridea/output"/>
-    <link rel="self" href="C:/Users/84469/Documents/Gridea/output/atom.xml"/>
+    <link rel="alternate" href="https://aiyinshixian.github.io"/>
+    <link rel="self" href="https://aiyinshixian.github.io/atom.xml"/>
     <subtitle>爱因诗贤个人博客</subtitle>
-    <logo>C:/Users/84469/Documents/Gridea/output/images/avatar.png</logo>
-    <icon>C:/Users/84469/Documents/Gridea/output/favicon.ico</icon>
+    <logo>https://aiyinshixian.github.io/images/avatar.png</logo>
+    <icon>https://aiyinshixian.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 爱因诗贤</rights>
     <entry>
         <title type="html"><![CDATA[合并二维数组交集区间算法]]></title>
-        <id>C:/Users/84469/Documents/Gridea/output/post/v425lM7MD/index.html</id>
-        <link href="C:/Users/84469/Documents/Gridea/output/post/v425lM7MD/index.html">
+        <id>https://aiyinshixian.github.io/post/v425lM7MD</id>
+        <link href="https://aiyinshixian.github.io/post/v425lM7MD">
         </link>
         <updated>2019-08-29T03:17:14.000Z</updated>
     </entry>
