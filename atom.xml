@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://aiyinshixian.github.io</id>
     <title>爱因诗贤</title>
-    <updated>2019-08-19T03:45:03.272Z</updated>
+    <updated>2019-08-29T03:18:40.044Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://aiyinshixian.github.io"/>
     <link rel="self" href="https://aiyinshixian.github.io/atom.xml"/>
@@ -10,31 +10,4 @@
     <logo>https://aiyinshixian.github.io/images/avatar.png</logo>
     <icon>https://aiyinshixian.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 爱因诗贤</rights>
-    <entry>
-        <title type="html"><![CDATA[test]]></title>
-        <id>https://aiyinshixian.github.io/post/test</id>
-        <link href="https://aiyinshixian.github.io/post/test">
-        </link>
-        <updated>2019-08-15T15:30:05.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于]]></title>
-        <id>https://aiyinshixian.github.io/post/about</id>
-        <link href="https://aiyinshixian.github.io/post/about">
-        </link>
-        <updated>2019-01-25T11:09:48.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://aiyinshixian.github.io/post/hello-gridea</id>
-        <link href="https://aiyinshixian.github.io/post/hello-gridea">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></content>
-    </entry>
 </feed>
