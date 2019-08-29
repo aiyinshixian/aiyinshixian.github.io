@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="C:/Users/84469/Documents/Gridea/output/favicon.ico?v=1567048876580">
+<link rel="shortcut icon" href="C:/Users/84469/Documents/Gridea/output/favicon.ico?v=1567049064178">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="C:/Users/84469/Documents/Gridea/output/styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="C:/Users/84469/Documents/Gridea/output">
-        <img src="C:/Users/84469/Documents/Gridea/output/images/avatar.png?v=1567048876580" class="site-logo">
+        <img src="C:/Users/84469/Documents/Gridea/output/images/avatar.png?v=1567049064178" class="site-logo">
         <h1 class="site-title">爱因诗贤</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -110,8 +110,8 @@ class Index extends Controller
             $str_arr = [$brr[0]];//此处取$brr数组第一个元素数组
 
             for($i=1;$i&lt;= count($brr)-1;$i++){
-
-                $str_arr = $this-&gt;getLastArr($str_arr,$brr[$i]);//假设此函数能得到一个二维数组和一个一维数组的交集
+/*假设此函数能得到一个二维数组和一个一维数组的交集*/
+                $str_arr = $this-&gt;getLastArr($str_arr,$brr[$i]);
             }
 
             print_r($str_arr);
@@ -122,8 +122,8 @@ class Index extends Controller
      */
     public function getLastArr($str_arr,$brr){
 
-        //此时假设$str_arr是没有交集的二维数组,如[[2,5],[6,10],[11,15]......]
-        //      $str_str 是这个二维数组对应的展开,如 [2,5,6,10,11,15.......]
+        /*此时假设$str_arr是没有交集的二维数组,如[[2,5],[6,10],[11,15]......]
+          $str_str 是这个二维数组对应的展开,如 [2,5,6,10,11,15.......]     */
                  $str_str = [];
                 foreach ($str_arr as $v){
 
@@ -133,19 +133,19 @@ class Index extends Controller
 
                 }
 
-        //假设$brr为一个任意的区间数组如 [12,18]
+      /*假设$brr为一个任意的区间数组如 [12,18]
 
-        //步骤一 : 把 12拿到 $str_str 中去作对比,找到 12 在 $str_str 中的 哪个区间
-        //步骤二 : 把 15拿到 $str_str 中去对比 ,找到 15 在 $str_str 中的哪个区间
+        步骤一 : 把 12拿到 $str_str 中去作对比,找到 12 在 $str_str 中的 哪个区间
+        步骤二 : 把 15拿到 $str_str 中去对比 ,找到 15 在 $str_str 中的哪个区间
 
-        //若 12 所在区间的位置数为第m个元素 和 第 n 个元素之间,  15所在区间 为 第x个元素 和 第y个元素之间,
-          //则 m n x y 有四种情况 (m奇数   x奇数 ) 、(m偶数  x奇数 )、
-        //                      (m奇数   x偶数 ) 、(m偶数  x偶数)
+        若 12 所在区间的位置数为第m个元素 和 第 n 个元素之间,  15所在区间 为 第x个元素 和 第y个元素之间,
+          则 m n x y 有四种情况 (m奇数   x奇数 ) 、(m偶数  x奇数 )、
+                              (m奇数   x偶数 ) 、(m偶数  x偶数)
 
-        //这四种情况的 合并 都有 一定的规律
+        这四种情况的 合并 都有 一定的规律  */
 
-
-            $m = $this-&gt;getNum($brr[0],$str_str); //此函数得到某个数值在数组中区间的位置前一个元素的位置的值 ,$m 表示第 $m个之后
+//此函数得到某个数值在数组中区间的位置前一个元素的位置的值 ,$m 表示第 $m个之后
+            $m = $this-&gt;getNum($brr[0],$str_str); 
 
             $x = $this-&gt;getNum($brr[1],$str_str); //同上
 
